@@ -1,4 +1,4 @@
-# iqa-sensori
+# iqa-sensori 
 
 
 1) Generare a partire dal notebook genera dataset da csv il dataset con le immagini alle varie profondità (Il dataset con i csv non è sotto controllo di versione)
