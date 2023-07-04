@@ -12,7 +12,12 @@ function [ matrice ] = profonditaTratti2( matrice, matFile )
     
     matriceOutput = matrice;
     
-    istante = str2num(matFile(end));
+    %istante = str2num(matFile(end));
+    istante = -1;
+    if(istante == -1)
+        save(strcat(pwd,'/Template3D/dat/',matFile,'.dat'),'matrice');
+    end
+
 
     if(istante==0)
 
@@ -71,7 +76,8 @@ function [ matrice ] = profonditaTratti2( matrice, matFile )
 
     imshow(rgb_image);
   
-    percorso = [pwd '/Template3D/istante00' num2str(istante) '/' matFile '.jpg'];
+    %percorso = [pwd '/Template3D/istante00' num2str(istante) '/' matFile '.jpg'];
+    percorso = [pwd '/Template3D/jpg/' matFile '.jpg'];
     imwrite(rgb_image,percorso);
 
     %saveas(figure1, percorso);

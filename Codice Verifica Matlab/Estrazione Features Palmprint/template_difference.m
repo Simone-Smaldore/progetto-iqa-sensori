@@ -7,8 +7,8 @@ function [matGrayXY_binary_allung2,matGray] = template_difference(matGraySporco,
     matGraySporcoMediato = medfilt2(matGraySporco, [9,9]);
     matGraySporcoAritmetico = imfilter(matGraySporco,w5);
 
-    imwrite(matGraySporcoAritmetico, ['img/immagine_primo_filtro_' num2str(num) '.png']);
-    writematrix(matGraySporcoAritmetico,['csv/immagine_primo_filtro_' num2str(num) '.csv']) 
+    %imwrite(matGraySporcoAritmetico, ['img/immagine_primo_filtro_' num2str(num) '.png']);
+    %writematrix(matGraySporcoAritmetico,['csv/immagine_primo_filtro_' num2str(num) '.csv']) 
 
     conteggio_punti=850; %850
     %%%%%%%%%%%%%%%%%%%%%%%
@@ -29,8 +29,8 @@ function [matGrayXY_binary_allung2,matGray] = template_difference(matGraySporco,
             end
         end
     end
-    imwrite(matGrayX, ['img/immagine_algoritmo_applicato_' num2str(num) '.png']);
-    writematrix(matGrayX,['csv/immagine_algoritmo_applicato_' num2str(num) '.csv'])
+    %imwrite(matGrayX, ['img/immagine_algoritmo_applicato_' num2str(num) '.png']);
+    %writematrix(matGrayX,['csv/immagine_algoritmo_applicato_' num2str(num) '.csv'])
 
 
     % 2° ALGORITMO
@@ -56,8 +56,8 @@ function [matGrayXY_binary_allung2,matGray] = template_difference(matGraySporco,
         end
     end
 
-    imwrite(matGrayX2, ['img/secondo_algoritmo_applicato_' num2str(num) '.png']);
-    writematrix(matGrayX2,['csv/secondo_algoritmo_applicato_' num2str(num) '.csv'])
+    %imwrite(matGrayX2, ['img/secondo_algoritmo_applicato_' num2str(num) '.png']);
+    %writematrix(matGrayX2,['csv/secondo_algoritmo_applicato_' num2str(num) '.csv'])
     
     %binarizzo -> non usato
     matGrayX2_binary=matGrayX2;
@@ -75,7 +75,7 @@ function [matGrayXY_binary_allung2,matGray] = template_difference(matGraySporco,
 
 
  
-  imwrite(matGrayX2_binary, 'immagine_edge.png');
+  %imwrite(matGrayX2_binary, 'immagine_edge.png');
 
 
     % 3° ALGORITMO
@@ -99,8 +99,8 @@ function [matGrayXY_binary_allung2,matGray] = template_difference(matGraySporco,
         end
     end
 
-    imwrite(matGrayX2_SPOLVERATA, ['img/terzo_algoritmo_applicato_' num2str(num) '.png']);
-    writematrix(matGrayX2_SPOLVERATA,['csv/terzo_algoritmo_applicato_' num2str(num) '.csv'])
+    %imwrite(matGrayX2_SPOLVERATA, ['img/terzo_algoritmo_applicato_' num2str(num) '.png']);
+    %writematrix(matGrayX2_SPOLVERATA,['csv/terzo_algoritmo_applicato_' num2str(num) '.csv'])
 
 
     % 4° ALGORITMO
@@ -238,7 +238,7 @@ function [matGrayXY_binary_allung2,matGray] = template_difference(matGraySporco,
             end
         end
      end
-imwrite(matGrayX3_binary, 'immagine_0.png');
+%imwrite(matGrayX3_binary, 'immagine_0.png');
     %%%%%%%%%%%%%%%%%%%%%
     % INVERTIAMO LA MATRICE DELLE DIFFERENZE PER CERCARE LE LINEE ANCHE DA
     % DESTRA VERSO SINISTRA
@@ -444,7 +444,7 @@ imwrite(matGrayX3_binary, 'immagine_0.png');
         matGrayX33_binary_girata(:,j)=matGrayX33_binary(:,i);
         j=j+1;
     end
-imwrite(matGrayX33_binary_girata, 'immagine_180.png');
+%imwrite(matGrayX33_binary_girata, 'immagine_180.png');
 
 
     for i=1:dimensionerighe
@@ -664,7 +664,7 @@ imwrite(matGrayX33_binary_girata, 'immagine_180.png');
             end
         end
      end
-  imwrite(matGrayY3_binary, 'immagine_90.png');
+  %imwrite(matGrayY3_binary, 'immagine_90.png');
 
     % %%%%%%%%%%%%%%%%%%%%%
     % % INVERTIAMO LA MATRICE DELLE DIFFERENZE PER CERCARE LE LINEE ANCHE DAL
@@ -870,7 +870,7 @@ imwrite(matGrayX33_binary_girata, 'immagine_180.png');
         j=j+1;
     end
 
- imwrite(matGrayY33_binary_girata,'Ximmagine270.png');
+ %imwrite(matGrayY33_binary_girata,'Ximmagine270.png');
 
 
     for i=1:dimensionerighe
@@ -965,7 +965,7 @@ imwrite(matGrayX33_binary_girata, 'immagine_180.png');
    
     matGrayXY_binary_allung=matGrayY_lines_allung+matGrayX_lines_allung;
     
-  imwrite(matGrayXY_binary, 'immagine_somma.png');
+  %imwrite(matGrayXY_binary, 'immagine_somma.png');
     
     matGrayXY_binary_allung1 = bwmorph(matGrayXY_binary_allung,'close');
     matGrayXY_binary_allung2 = bwmorph(matGrayXY_binary_allung1,'thin',Inf);

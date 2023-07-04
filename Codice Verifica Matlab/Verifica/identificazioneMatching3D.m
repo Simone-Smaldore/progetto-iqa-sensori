@@ -8,7 +8,7 @@ else
     slash = '\';
 end
 
-tipoAnalisi = "2D";
+tipoAnalisi = "3D";
 
 cartellaTemplate=strcat(cartellaTemplate,slash);
 

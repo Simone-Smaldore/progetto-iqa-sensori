@@ -22,13 +22,13 @@ function [ matriceOutput ] = generaMatriceContenenteTemplate(path)
     template12 = importdata(strcat(path,'TEMPLATE11.dat'));
     template13 = importdata(strcat(path,'TEMPLATE12.dat'));
     template14 = importdata(strcat(path,'TEMPLATE13.dat'));
-    template15 = importdata(strcat(path,'TEMPLATE14.dat'));
+    %template15 = importdata(strcat(path,'TEMPLATE1.dat'));
 
     sizeTemplate = size(template2);
     
-    matriceTemplate =  zeros(sizeTemplate(1),sizeTemplate(2),14);
+    matriceTemplate =  zeros(sizeTemplate(1),sizeTemplate(2),13);
     
-    for (i=2:15)    
+    for (i=2:14)    
         
         index = i;
         
