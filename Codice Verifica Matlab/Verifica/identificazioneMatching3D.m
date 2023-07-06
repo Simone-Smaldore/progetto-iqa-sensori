@@ -29,11 +29,26 @@ for i=numeroCartella:length(dirs)
    files=dir(fullfile(cartella,'*.dat'));
  
    elementi=size(files,1);
+   
    numeroFile=0;
+
+   FILE_PROCESSATI = 0;
+
+
    for contatore=1:elementi
+     dim_tabella_attuale=1;
+     tabellaAttuale=cell(dim_tabella_attuale,3);
+
 
      disp(['****** Mancano ' num2str(elementi-contatore) ' acquisizioni da confrontare ****** '])
+
+
+
      numeroFile=numeroFile+1;
+
+     if contatore <= FILE_PROCESSATI
+        continue
+     end
      corrente=files(contatore).name(1:length(files(contatore).name)-4);
      primoTemplate=importdata(strcat(cartella,files(contatore).name));
      cartellaDaTestare=cartellaTemplate;
@@ -62,6 +77,12 @@ for i=numeroCartella:length(dirs)
                     tabellaFinale(sp,1)={corrente};
                     tabellaFinale(sp,2)={correnteFileDaTestare};
                     tabellaFinale(sp,3)={score(1)};
+
+                    tabellaAttuale(dim_tabella_attuale,1)={corrente};
+                    tabellaAttuale(dim_tabella_attuale,2)={correnteFileDaTestare};
+                    tabellaAttuale(dim_tabella_attuale,3)={score(1)};
+
+                    dim_tabella_attuale = dim_tabella_attuale+1;
                     sp=sp+1;
                     numeroRisultato=numeroRisultato+1;
                     catch
@@ -88,6 +109,9 @@ for i=numeroCartella:length(dirs)
             end 
         end
      end
+     actualT = cell2table(tabellaAttuale, 'VariableNames',{'Utente1' 'Utente2' 'ScoreML'});
+     mkdir(strcat('tabelleParziali/', string(contatore)));
+     writetable(actualT,strcat('tabelleParziali/', string(contatore) ,'/tabellaScore.csv'),'Delimiter',',')
    end
    numeroCartella=numeroCartella+1;
 end
