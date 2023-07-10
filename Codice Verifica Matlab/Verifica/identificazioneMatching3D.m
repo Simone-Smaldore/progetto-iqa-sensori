@@ -32,7 +32,7 @@ for i=numeroCartella:length(dirs)
    
    numeroFile=0;
 
-   FILE_PROCESSATI = 0;
+   FILE_PROCESSATI = 145;
 
 
    for contatore=1:elementi
