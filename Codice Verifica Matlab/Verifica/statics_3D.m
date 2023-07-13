@@ -3,13 +3,17 @@ clear all;
 clc;
 
 
-load Tabella111__350_alfa=6_dil5_nuova4.mat
+%load scoreCsv.csv
+%T = readtable("scoreCsv.csv", 'Delimiter', ',');
+T = readtable("scoreFiltratiCsv.csv", 'Delimiter', ',');
+%T = readtable("scoreCsv.csv",'NumHeaderLines',3);
 
 matchT=size(T);
 for i=1:matchT(1)
     Ut1=char(T.Utente1(i));
     Ut1=strrep(Ut1,'.dat','');
     nomeUt1=Ut1(1:(length(Ut1)-2));
+    
     cifreUt1=str2num(Ut1((length(Ut1)):end));
 
     Ut2=char(T.Utente2(i));
@@ -24,8 +28,8 @@ for i=1:matchT(1)
         end
        
         xxx=strrep(Ut1,'.dat','');
-        yyy=str2num(xxx);
-        T.Utente1(i)={yyy};
+        %yyy=str2num(xxx);
+        %T.Utente1(i)={yyy};
         
         
 end
