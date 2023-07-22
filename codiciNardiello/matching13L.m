@@ -31,7 +31,7 @@ function [scoreFinale matFinaleB angoloScore rigaScore colonnaScore] = matching(
             for j=0:50
                matAppoggioTraslata=matriceGrandeB([i+1:rigaMatchA+i],[j+1:colonnaMatchA+j]);
 			   %punteggioScore=sum(sum(matMatchARot & matAppoggioTraslata));
-                punteggioScore=sum(sum(abs(matMatchARot - matAppoggioTraslata)<4 & matMatchARot>0 & matAppoggioTraslata>0)); %(A==B & A~=0 & B~=0)
+                punteggioScore=sum(sum(abs(matMatchARot - matAppoggioTraslata)<3 & matMatchARot>0 & matAppoggioTraslata>0)); %(A==B & A~=0 & B~=0)
                 if(punteggioScore>maxScore)
                     maxScore=punteggioScore;
                     matFinaleB=matAppoggioTraslata;
