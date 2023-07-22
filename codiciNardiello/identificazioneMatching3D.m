@@ -25,7 +25,10 @@ for i=numeroCartella:length(dirs)
  
    elementi=size(files,1);
    numeroFile=0;
-   FILE_PROCESSATI = 1;
+
+   FILE_PROCESSATI = 0;
+   FILE_FINALE = 0;
+
    for contatore=1:elementi
      dim_tabella_attuale=1;
      tabellaAttuale=cell(dim_tabella_attuale,3);
@@ -34,6 +37,10 @@ for i=numeroCartella:length(dirs)
      numeroFile=numeroFile+1;
 
      if contatore <= FILE_PROCESSATI
+        continue
+     end
+
+     if contatore >= (719 - FILE_FINALE) + 1
         continue
      end
 
