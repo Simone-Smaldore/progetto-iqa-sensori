@@ -1,8 +1,10 @@
 import tkinter as tk
 from tkinter import filedialog as fd
 from PIL import ImageTk, Image  
+from valuta_qualita_immagine import *
 
 IMMAGINE_APP = None
+LABEL_REPORT = []
 
 window = tk.Tk()
 window.geometry("1280x720")
@@ -62,10 +64,25 @@ checkbutton_blur.place(x=10, y=150)
 checkbutton_black_stains.place(x=10, y=180)
 
 def valuta_qualita():
-    print(IMMAGINE_APP)
+    if(IMMAGINE_APP == None):
+        return
+    global LABEL_REPORT
+    for label in LABEL_REPORT:
+        label.place(x=0, y=0, width=0, height=0)
+    LABEL_REPORT = []
+    report_qualita = calcola_report_qualita(IMMAGINE_APP, speckle_option.get(), blur_option.get(), black_stains_option.get())
+    for i, riga_report in enumerate(report_qualita):
+        label_riga_report = tk.Label(window,
+                         text=riga_report[0],
+                         bg=riga_report[1],
+                         font=("Helvetica", 15))
+        label_riga_report.place(x=10, y=300 + (30 * i), width=400, height=30)
+        LABEL_REPORT.append(label_riga_report)
+
+label_distorsioni.place(x=10, y=70, height=30)
 
 button_valuta_qualita = tk.Button(text="Valuta qualita", command=valuta_qualita)
-button_valuta_qualita.place(x=10, y=220, width=200, height=30)
+button_valuta_qualita.place(x=10, y=220, width=400, height=30)
 
 
 if __name__ == "__main__":
