@@ -91,6 +91,12 @@ for i=numeroCartella:length(dirs)
                 tabellaFinale(sp,1)={corrente};
                 tabellaFinale(sp,2)={corrFileDaTestare}; 
                 tabellaFinale(sp,3)={score(1)};
+
+                tabellaAttuale(dim_tabella_attuale,1)={corrente};
+                tabellaAttuale(dim_tabella_attuale,2)={correnteFileDaTestare};
+                tabellaAttuale(dim_tabella_attuale,3)={score(1)};
+
+                dim_tabella_attuale = dim_tabella_attuale+1;
                 sp=sp+1;
                 numeroRisultato=numeroRisultato+1;
                 catch
