@@ -26,8 +26,8 @@ for i=numeroCartella:length(dirs)
    elementi=size(files,1);
    numeroFile=0;
 
-   FILE_PROCESSATI = 0;
-   FILE_FINALE = 0;
+   FILE_PROCESSATI = 353;
+   FILE_FINALE = 363;
 
    for contatore=1:elementi
      dim_tabella_attuale=1;
