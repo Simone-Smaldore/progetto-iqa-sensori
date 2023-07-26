@@ -51,15 +51,12 @@ label_distorsioni = tk.Label(window,
                          font=("Helvetica", 15))
 label_distorsioni.place(x=10, y=70, height=30)
 
-speckle_option = tk.BooleanVar()
 blur_option = tk.BooleanVar()
 black_stains_option = tk.BooleanVar()
 
-checkbutton_speckle = tk.Checkbutton(window, text="Speckle", variable=speckle_option)
-checkbutton_blur = tk.Checkbutton(window, text="Gaussian Blur", variable=blur_option)
+checkbutton_blur = tk.Checkbutton(window, text="Motion Blur", variable=blur_option)
 checkbutton_black_stains = tk.Checkbutton(window, text="Macchie Nere", variable=black_stains_option)
 
-checkbutton_speckle.place(x=10, y=120)
 checkbutton_blur.place(x=10, y=150)
 checkbutton_black_stains.place(x=10, y=180)
 
@@ -70,7 +67,7 @@ def valuta_qualita():
     for label in LABEL_REPORT:
         label.place(x=0, y=0, width=0, height=0)
     LABEL_REPORT = []
-    report_qualita = calcola_report_qualita(IMMAGINE_APP, speckle_option.get(), blur_option.get(), black_stains_option.get())
+    report_qualita = calcola_report_qualita(IMMAGINE_APP, blur_option.get(), black_stains_option.get())
     for i, riga_report in enumerate(report_qualita):
         label_riga_report = tk.Label(window,
                          text=riga_report[0],
